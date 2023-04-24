@@ -23,8 +23,7 @@ spinner(){
     printf "    \b\b\b\b"
 }
 
-apt install -qq wget curl git figlet net-tools -y
-spinner $!
+apt install -qq wget curl figlet net-tools -y & spinner $!
 
 menu() {
     while true $x != "exitmenu"
@@ -39,12 +38,12 @@ menu() {
         cal=("Auto Iptables Config" "Sair")
         select x in "${cal[@]}"; do
             case $x in
-                1)
+                "Auto Iptables Config")
                     echo "Iniciando..."
                     clear
                     bash <(curl -s http://storage.cchcloud.tk/r/Iptables_AUTO.sh)
                 ;;
-                2)
+                "Sair")
                     echo "Saindo..."
                     sleep 2
                     clear
