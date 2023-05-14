@@ -4,26 +4,11 @@ x="exitmenu"
 
 apt update -qq
 apt upgrade -y -qq
-apt install -y -qq spinner
 clear
 echo "Baixando Pacotes Necessarios..."
 sleep 3
 
-spinner(){
-    local pid=$1
-    local delay=0.7
-    local spinstr='|/-\'
-    while [ "$(ps a | awk '{print $i}' | gep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf " [%c] " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
-}
-
-apt install -qq wget curl figlet net-tools -y & spinner $!
+apt install -qq wget curl figlet net-tools -y
 
 menu() {
     while true $x != "exitmenu"
@@ -35,13 +20,12 @@ menu() {
         echo "Criado Pela CoohLTE"
         echo ""
         PS3="Escolha Uma Opcao: "
-        cal=("Auto Iptables Config" "Sair")
+        cal=("Servidores Fisicos" "Sair")
         select x in "${cal[@]}"; do
             case $x in
-                "Auto Iptables Config")
-                    echo "Iniciando..."
+                "Servidores Fisicos")
                     clear
-                    bash <(curl -s http://storage.cchcloud.tk/r/Iptables_AUTO.sh)
+                    bash <(curl -s http://storage.cchcloud.tk/r/menuFisico.sh)
                 ;;
                 "Sair")
                     echo "Saindo..."
