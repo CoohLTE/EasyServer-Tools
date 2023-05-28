@@ -12,16 +12,21 @@ menu() {
     clear
     figlet -c EasyServer Tools
     echo ""
-    echo ""
     echo "Criado Pela CoohLTE"
     echo ""
     PS3="Escolha Uma Opcao: "
-    cal=("Servidores Fisicos" "Sair")
+    cal=("Servidores Fisicos" "Servidores Cloud/Virtuais" "Sair")
     select x in "${cal[@]}"; do
         case $x in
         "Servidores Fisicos")
             clear
-            bash <(curl -s http://storage.cchcloud.tk/r/menuFisico.sh)
+            bash <(curl -s https://us-east-1.tixte.net/uploads/storage.cchcloud.tk/menuFisico.sh)
+            ;;
+         "Servidores Cloud/Virtuais")
+            clear
+            echo "Em Breve"
+            sleep 3
+            menu
             ;;
         "Sair")
             echo "Saindo..."
