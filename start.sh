@@ -21,11 +21,12 @@ menu() {
         "Servidores Fisicos")
             clear
             bash <(curl -s https://us-east-1.tixte.net/uploads/storage.cchcloud.tk/menuFisico.sh)
+            exit
             ;;
-         "Servidores Cloud/Virtuais")
+        "Servidores Cloud/Virtuais")
             clear
             echo "Em Breve"
-            sleep 3
+            sleep 2
             menu
             ;;
         "Sair")
@@ -35,7 +36,10 @@ menu() {
             exit
             ;;
         *)
+            clear
             echo "Opcao Invalida!"
+            sleep 1
+            menu
             ;;
         esac
     done
