@@ -14,6 +14,7 @@ menu() {
     echo ""
     echo "Criado Pela CoohLTE"
     echo ""
+    echo ""
     PS3="Escolha Uma Opcao: "
     cal=("Servidores Fisicos" "Servidores Cloud/Virtuais" "Sair")
     select x in "${cal[@]}"; do
